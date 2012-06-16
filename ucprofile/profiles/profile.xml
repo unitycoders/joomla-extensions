@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
   <fields name="ucprofile">
-    <fieldset name="ucprofile">
+    <fieldset
+        name="ucprofile"
+        label="PLG_USER_UCPROFILE_FIELDSET_LABEL"
+        description="PLG_USER_UCPROFILE_FIELDSET_DESC"
+    >
       <field
         name="ircnick"
         type="text"
         id="ircnick"
-        description="PLG_USER_PROFILES_FIELD_IRCNICK_DESC"
+        description="PLG_USER_UCPROFILE_FIELD_IRCNICK_DESC"
         filter="string"
-        label="PLG_USER_PROFILES_FIELD_IRCNICK_DESC"
-        message="PLG_USER_PROFILES_FIELD_IRCNIC_MESSAGE"
+        label="PLG_USER_UCPROFILE_FIELD_IRCNICK_LABEL"
+        message="PLG_USER_UCPROFILE_FIELD_IRCNIC_MESSAGE"
         size="30"
       />
     </fieldset>
