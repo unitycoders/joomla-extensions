@@ -1,10 +1,8 @@
 <?php
  /**
   * @version        
-  * @copyright  Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights
-reserved.
-  * @license        GNU General Public License version 2 or later; see
-LICENSE.txt
+  * @copyright  Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights reserved.
+  * @license  GNU General Public License version 2 or later; see LICENSE.txt
   */
  
  defined('JPATH_BASE') or die;
@@ -29,8 +27,7 @@ LICENSE.txt
     function onContentPrepareData($context, $data)
     {
         // Check we are manipulating a valid form.
-        if (!in_array($context,
-array('com_users.profile','com_users.registration','com_users.user','com_admin.profile'))){
+        if (!in_array($context, array('com_users.profile','com_users.registration','com_users.user','com_admin.profile'))){
             return true;
         }
  
@@ -79,8 +76,7 @@ array('com_users.profile','com_users.registration','com_users.user','com_admin.p
             return false;
         }
         // Check we are manipulating a valid form.
-        if (!in_array($form->getName(), array('com_users.profile',
-'com_users.registration','com_users.user','com_admin.profile'))) {
+        if (!in_array($form->getName(), array('com_users.profile','com_users.registration','com_users.user','com_admin.profile'))) {
             return true;
         }
         if ($form->getName()=='com_users.profile')
@@ -91,17 +87,14 @@ array('com_users.profile','com_users.registration','com_users.user','com_admin.p
  
             // Toggle whether the something field is required.
             if ($this->params->get('profile-require_something', 1) > 0) {
-                $form->setFieldAttribute('something', 'required',
-$this->params->get('profile-require_something') == 2, 'ucprofile');
+                $form->setFieldAttribute('something', 'required', $this->params->get('profile-require_something') == 2, 'ucprofile');
             } else {
                 $form->removeField('something', 'ucprofile');
             }
         }
  
-        //In this example, we treat the frontend registration and the back end
-user create or edit as the same. 
-        elseif ($form->getName()=='com_users.registration' ||
-$form->getName()=='com_users.user' )
+        //In this example, we treat the frontend registration and the back end user create or edit as the same. 
+        elseif ($form->getName()=='com_users.registration' || $form->getName()=='com_users.user' )
         {       
             // Add the registration fields to the form.
             JForm::addFormPath(dirname(__FILE__).'/profiles');
@@ -109,8 +102,7 @@ $form->getName()=='com_users.user' )
  
             // Toggle whether the something field is required.
             if ($this->params->get('register-require_something', 1) > 0) {
-                $form->setFieldAttribute('something', 'required',
-$this->params->get('register-require_something') == 2, 'ucprofile');
+                $form->setFieldAttribute('something', 'required', $this->params->get('register-require_something') == 2, 'ucprofile');
             } else {
                 $form->removeField('something', 'ucprofile');
             }
@@ -121,14 +113,12 @@ $this->params->get('register-require_something') == 2, 'ucprofile');
     {
         $userId = JArrayHelper::getValue($data, 'id', 0, 'int');
  
-        if ($userId && $result && isset($data['ucprofile']) &&
-(count($data['ucprofile'])))
+        if ($userId && $result && isset($data['ucprofile']) && (count($data['ucprofile'])))
         {
             try
             {
                 $db = &JFactory::getDbo();
-                $db->setQuery('DELETE FROM #__user_profiles WHERE user_id =
-'.$userId.' AND profile_key LIKE \'ucprofile.%\'');
+                $db->setQuery('DELETE FROM #__user_profiles WHERE user_id = '.$userId.' AND profile_key LIKE \'ucprofile.%\'');
                 if (!$db->query()) {
                     throw new Exception($db->getErrorMsg());
                 }
@@ -136,12 +126,10 @@ $this->params->get('register-require_something') == 2, 'ucprofile');
                 $tuples = array();
                 $order  = 1;
                 foreach ($data['ucprofile'] as $k => $v) {
-                    $tuples[] = '('.$userId.', '.$db->quote('ucprofile.'.$k).',
-'.$db->quote($v).', '.$order++.')';
+                    $tuples[] = '('.$userId.', '.$db->quote('ucprofile.'.$k).','.$db->quote($v).', '.$order++.')';
                 }
  
-                $db->setQuery('INSERT INTO #__user_profiles VALUES '.implode(',
-', $tuples));
+                $db->setQuery('INSERT INTO #__user_profiles VALUES '.implode(',', $tuples));
                 if (!$db->query()) {
                     throw new Exception($db->getErrorMsg());
                 }
@@ -161,8 +149,7 @@ $this->params->get('register-require_something') == 2, 'ucprofile');
      * Method is called after user data is deleted from the database
      *
      * @param   array       $user       Holds the user data
-     * @param   boolean     $success    True if user was succesfully stored in
-the database
+     * @param   boolean     $success    True if user was succesfully stored in the database
      * @param   string      $msg        Message
      */
     function onUserAfterDelete($user, $success, $msg)
