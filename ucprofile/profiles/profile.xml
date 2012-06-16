@@ -3,14 +3,14 @@
   <fields name="ucprofile">
     <fieldset name="ucprofile">
       <field
-        name=""
-        type=""
-        id=""
-        description=""
-        filter=""
-        label=""
-        message=""
-        size=""
+        name="ircnick"
+        type="text"
+        id="ircnick"
+        description="PLG_USER_PROFILES_FIELD_IRCNICK_DESC"
+        filter="string"
+        label="PLG_USER_PROFILES_FIELD_IRCNICK_DESC"
+        message="PLG_USER_PROFILES_FIELD_IRCNIC_MESSAGE"
+        size="30"
       />
     </fieldset>
   </fields>
