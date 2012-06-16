@@ -78,35 +78,7 @@
         // Check we are manipulating a valid form.
         if (!in_array($form->getName(), array('com_users.profile','com_users.registration','com_users.user','com_admin.profile'))) {
             return true;
-        }
-        if ($form->getName()=='com_users.profile')
-        {
-            // Add the profile fields to the form.
-            JForm::addFormPath(dirname(__FILE__).'/profiles');
-            $form->loadFile('profile', false);
- 
-            // Toggle whether the something field is required.
-            if ($this->params->get('profile-require_something', 1) > 0) {
-                $form->setFieldAttribute('something', 'required', $this->params->get('profile-require_something') == 2, 'ucprofile');
-            } else {
-                $form->removeField('something', 'ucprofile');
-            }
-        }
- 
-        //In this example, we treat the frontend registration and the back end user create or edit as the same. 
-        elseif ($form->getName()=='com_users.registration' || $form->getName()=='com_users.user' )
-        {       
-            // Add the registration fields to the form.
-            JForm::addFormPath(dirname(__FILE__).'/profiles');
-            $form->loadFile('profile', false);
- 
-            // Toggle whether the something field is required.
-            if ($this->params->get('register-require_something', 1) > 0) {
-                $form->setFieldAttribute('something', 'required', $this->params->get('register-require_something') == 2, 'ucprofile');
-            } else {
-                $form->removeField('something', 'ucprofile');
-            }
-        }           
+        }          
     }
  
     function onUserAfterSave($data, $isNew, $result, $error)
