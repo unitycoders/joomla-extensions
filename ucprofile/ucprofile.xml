@@ -26,31 +26,6 @@
         <fields name="params">
  
             <fieldset name="basic">
-                <field name="register-require-user" type="spacer"
-                    label="PLG_USER_UCPROFILE_FIELD_NAME_REGISTER_REQUIRE_USER"
-                />
- 
-                <field name="register-something" type="list"
-                    description="PLG_USER_PROFILE5_FIELD_SOMETHING_DESC"
-                    label="PLG_USER_UCPROFILE_FIELD_SOMETHING_LABEL"
-                >
-                    <option value="2">JOPTION_REQUIRED</option>
-                    <option value="1">JOPTION_OPTIONAL</option>
-                    <option value="0">JDISABLED</option>
-                </field>
- 
-                <field name="profile-require-user" type="spacer"
-                    label="PLG_USER_UCPROFILE_FIELD_NAME_PROFILE_REQUIRE_USER"
-                />
- 
-                <field name="profile-require_something" type="list"
-                    description="PLG_USER_UCPROFILE_FIELD_SOMETHING_DESC"
-                    label="PLG_USER_UCPROFILE_FIELD_SOMETHING_LABEL"
-                >
-                    <option value="2">JOPTION_REQUIRED</option>
-                    <option value="1">JOPTION_OPTIONAL</option>
-                    <option value="0">JDISABLED</option>
-                </field>
  
             </fieldset>
  
